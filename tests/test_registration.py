@@ -1,5 +1,6 @@
 from selenium.webdriver.support import expected_conditions as EC
 from conftest import registration_data
+from test_data import EXISTING_EMAIL, EXISTING_PASSWORD
 from locators import MainPageLocators, AuthPageLocators, ProfilePageLocators
 
 
@@ -40,13 +41,9 @@ class TestRegistration:
     def test_existing_user_registration(self, driver, wait):
         driver.find_element(*MainPageLocators.LOGIN_BUTTON).click()
         driver.find_element(*AuthPageLocators.NO_ACCOUNT_BUTTON).click()
-
-        email = "123000@mail.ru"
-        password = "12345678kk22kk"
-
-        driver.find_element(*AuthPageLocators.EMAIL_INPUT).send_keys(email)
-        driver.find_element(*AuthPageLocators.PASSWORD_INPUT).send_keys(password)
-        driver.find_element(*AuthPageLocators.SUBMIT_PASSWORD_INPUT).send_keys(password)
+        driver.find_element(*AuthPageLocators.EMAIL_INPUT).send_keys(EXISTING_EMAIL)
+        driver.find_element(*AuthPageLocators.PASSWORD_INPUT).send_keys(EXISTING_PASSWORD)
+        driver.find_element(*AuthPageLocators.SUBMIT_PASSWORD_INPUT).send_keys(EXISTING_PASSWORD)
         driver.find_element(*AuthPageLocators.CREATE_ACCOUNT_BUTTON).click()
 
         wait.until(EC.visibility_of_element_located(AuthPageLocators.EMAIL_INPUT))

@@ -45,9 +45,9 @@ class CreateAdLocators:
     )
     FIRST_CITY = (
         By.XPATH,
-        "(//button[contains(@class,'dropDownMenu_btn')])[1]"
+        "(//div[contains(@class, 'dropDownMenu_options')]//button)[1]"
     )
-    DESCRIPTION_INPUT = (By.NAME, "description")
+    DESCRIPTION_INPUT = (By.XPATH, "//textarea[@name='description']")
     PRICE_INPUT = (By.NAME, "price")
     PUBLISH_BUTTON = (By.XPATH, "//button[text()='Опубликовать']")
 

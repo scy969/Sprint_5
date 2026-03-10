@@ -2,8 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from faker import Faker
-
-BASE_URL = "https://qa-desk.stand.praktikum-services.ru/"
+from config import BASE_URL
 
 
 @pytest.fixture

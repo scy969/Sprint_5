@@ -12,7 +12,7 @@ class TestLogout:
         driver.find_element(*AuthPageLocators.LOGIN_SUBMIT_BUTTON).click()
 
         logout_button = wait.until(
-            EC.element_to_be_clickable(ProfilePageLocators.LOGOUT_BUTTON)
+            EC.presence_of_element_located(ProfilePageLocators.LOGOUT_BUTTON)
         )
         logout_button.click()
 
